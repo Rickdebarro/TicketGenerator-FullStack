@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conference Ticket Generator</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class = "main-page">
+
+    <header class = "main-header">
+      <div class = "main-logo">
+          <img src="assets/images/logo-full.svg" alt="Logo da Conferência">
+      </div>
+      <h1 class = "header_text">
+        Sua Jornada para a Coding Conf de 2026 começa aqui!
+      </h1>
+      <br>
+      <h2 class = "header_subtitle">
+        Garanta sua vaga na maior conferência de programação do próximo ano.
+      </h2>
+    </header>
+
+    <div class = "avatar-upload">
+      Envie a foto que será usada na emissão do Ticket
+      <div class = "avatar-submit-area">
+        <input type="file" id = "avatar-input" class = "input-box" accept="image/*">
+        <label for="avatar_input" class= "input-box">
+          <img src="assets/images/icon-upload.svg" alt="">
+          <h3 class = "upload-text">
+            Clique ou arraste um arquivo para enviar
+          </h3>
+          <button class = "avatar-option-button" id="change-avatar-button">
+            mudar foto
+          </button>
+          <button class = "avatar-option-button" id="remove-avatar-button">
+            excluir foto
+          </button>
+        </label>
+      </div>
+
+      <div class = avatar-upload-subtitle>
+        <h4>
+          Envie sua foto (Formatos aceitos: JPG, PNG. Tamanho máximo: 5MB).
+        </h4>
+      </div>
+
+    </div>
+    
+<div class="forms">
+  <div class="form-input">
+    <label for="fullName" class="input-label">Nome Completo</label>
+    <div>
+      <input type="text" id="fullName" name="fullName" class="input-box" placeholder="Digite seu nome completo" required>
+    </div>
+  </div>
+
+  <div class="form-input">
+    <label for="email" class="input-label">Email</label>
+    <div>
+      <input type="email" id="email" name="email" class="input-box" placeholder="exemplo@email.com" required>
+    </div>
+  </div>
+
+  <div class="form-input">
+    <label for="gitUsername" class="input-label">Username do GitHub</label>
+    <div>
+      <input type="text" id="gitUsername" name="gitUsername" class="input-box" placeholder="@gitusername" required>
+    </div>
+  </div>
+
+  <button type="submit" class="submit-button">Gerar Ticket</button>
+
+</div>
+
+ <div class="ticket-preview-page">
+  
+    <header class="ticket-header">
+      <div class = "main-logo">
+          <img src="assets/images/logo-full.svg" alt="Logo da Conferência">
+      </div>
+      <h2 class="ticket-preview-text">Parabéns, seu ticket foi gerado com sucesso!</h2>
+    </header>
+
+
+    <div class="ticket-content">
+      <div class="ticket-avatar" id="ticket-avatar">
+        <img src="assets/images/image-avatar.jpg" id="avatar-image">
+      </div>
+
+      <div class="ticket-info">
+        <h3 id="ticket-fullName">Nome Completo</h3>
+        <p id="ticket-email">Email:</p>
+        <p id="ticket-gitUsername">GitHub:</p>
+        <p id="ticket-date">23 de outubro, Salvador-BA:</p>
+
+      </div>
+    </div>
+  </div>
+
+ <div class="footer">
+    <p>© 2024 Coding Conf. Todos os direitos reservados.</p>
+    <p>Desenvolvido por Rickdebarro</p>
+ </div>
+
+
+</body>
+</html>
