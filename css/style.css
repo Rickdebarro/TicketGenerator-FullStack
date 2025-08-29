@@ -1,0 +1,191 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #08082e, #1c1c4a);
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-header {
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.main-logo img {
+    width: 160px;
+    margin-bottom: 1rem;
+}
+
+.header_text {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.header_subtitle {
+    font-size: 1rem;
+    color: #bbb;
+    margin-top: 0.5rem;
+}
+
+.avatar-upload {
+    text-align: center;
+    margin: 2rem auto;
+}
+
+.avatar-submit-area {
+    border: 2px dashed #535353;
+    border-radius: 12px;
+    padding: 2rem;
+    margin-top: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.avatar-submit-area:hover {
+    border-color: #ff4d8d;
+    background: rgba(255, 77, 141, 0.1);
+}
+
+.avatar-submit-area input[type="file"] {
+    display: none;
+}
+
+.upload-text {
+    margin-top: 1rem;
+    font-size: 1rem;
+}
+
+.avatar-option-button {
+    margin-top: 1rem;
+    margin-inline: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 8px;
+    background: #333;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+    display: none
+}
+
+.avatar-option-button:hover {
+    background: #ff4d8d;
+}
+
+.avatar-upload-subtitle h4 {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: #bbb;
+}
+
+.forms {
+    max-width: 400px;
+    width: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-input {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-label {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.input-box {
+    padding: 0.8rem 1rem;
+    border: 1px solid #444;
+    border-radius: 10px;
+    background: #1a1a3a;
+    color: #fff;
+    outline: none;
+    transition: border 0.3s;
+}
+
+.input-box:focus {
+    border-color: #ff4d8d;
+}
+
+.submit-button {
+    padding: 1rem;
+    background: #ff4d8d;
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.submit-button:hover {
+    background: #ff2c73;
+}
+
+.ticket-preview-page {
+    display: none;
+    text-align: center;
+    margin: 2rem auto;
+    max-width: 500px;
+    width: 100%;
+    background: #1c1c4a;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.ticket-header img {
+    width: 140px;
+    margin-bottom: 1rem;
+}
+
+.ticket-preview-text {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.ticket-content {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background: #2c2c66;
+    padding: 1rem;
+    border-radius: 12px;
+}
+
+.ticket-avatar img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid #ff4d8d;
+}
+
+.ticket-info h3 {
+    margin-bottom: 0.3rem;
+}
+
+.ticket-info p {
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+.footer {
+    text-align: center;
+    margin-top: auto;
+    padding: 2rem;
+    font-size: 0.9rem;
+    color: #888;
+}
