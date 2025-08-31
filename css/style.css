@@ -1,53 +1,86 @@
-
+/* Reset global */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-family: "Inconsolata", monospace;
+}
+
+@font-face {
+    font-family: "Inconsolata";
+    src: url("../assets/fonts/Inconsolata-VariableFont_wdthwght.ttf") format("truetype");
 }
 
 body {
-    background: linear-gradient(135deg, #08082e, #1c1c4a);
+    
+    /* background: linear-gradient(135deg, #08082e, #1c1c4a); */
     color: #fff;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background: 
+    url("../assets/images/pattern-lines.svg") repeat-x 0px 0px / 230vh fixed,
+    url("../assets/images/pattern-squiggly-line-top.svg") no-repeat 70vw 2vh / 20% fixed,
+    url("../assets/images/pattern-squiggly-line-bottom-mobile-tablet.svg") no-repeat left bottom / 50% fixed,
+    url("../assets/images/pattern-circle.svg") no-repeat -5vw -4vh / 30vw fixed,
+    url("../assets/images/pattern-circle.svg") no-repeat 80vw 50vh / 30vw fixed,
+    url("../assets/images/background-mobile.png") no-repeat right top / 100% 100% fixed;
+
+}
+
+.main-page {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 1rem;
 }
 
 .main-header {
     text-align: center;
     padding: 2rem 1rem;
+    width: 100%;
 }
 
 .main-logo img {
-    width: 160px;
+    width: clamp(120px, 30vw, 160px);
     margin-bottom: 1rem;
 }
 
 .header_text {
-    font-size: 1.8rem;
+    font-size: clamp(1.5rem, 5vw, 1.8rem);
     font-weight: bold;
 }
 
 .header_subtitle {
-    font-size: 1rem;
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
     color: #bbb;
     margin-top: 0.5rem;
 }
 
 .avatar-upload {
-    text-align: center;
+    text-align: center; /* Manter este text-align para centralizar a área de upload e o subtítulo */
     margin: 2rem auto;
+    width: 100%;
 }
 
 .avatar-submit-area {
     border: 2px dashed #535353;
     border-radius: 12px;
-    padding: 2rem;
-    margin-top: 1rem;
+    padding: 1.5rem;
+    max-width: 500px;
+    width: 90%;
+    margin: 1rem auto; /* Centraliza a área de upload */
     cursor: pointer;
     transition: 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
 }
 
 .avatar-submit-area:hover {
@@ -59,9 +92,35 @@ body {
     display: none;
 }
 
+.upload-icon {
+    width: 50px;
+    height: auto;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+#avatar-preview-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ff4d8d;
+    margin: 1rem 0;
+    display: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
 .upload-text {
-    margin-top: 1rem;
-    font-size: 1rem;
+    margin-top: 0.5rem;
+    font-size: clamp(0.9rem, 3vw, 1rem);
+    text-align: center;
+}
+
+.avatar-buttons {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 0.5rem;
 }
 
 .avatar-option-button {
@@ -74,23 +133,32 @@ body {
     color: #fff;
     cursor: pointer;
     transition: 0.3s;
-    display: none
+    display: none;
+    white-space: nowrap;
 }
 
 .avatar-option-button:hover {
     background: #ff4d8d;
 }
 
+/* NOVO: Estilo para o contêiner do erro do avatar */
+.avatar-error-container {
+    max-width: 500px; /* Mesma largura máxima da área de upload */
+    width: 90%; /* Mesma largura relativa da área de upload */
+    margin: 0.5rem auto 0; /* Centraliza e adiciona margem superior */
+    text-align: left; /* Força o alinhamento do texto à esquerda dentro deste container */
+}
+
 .avatar-upload-subtitle h4 {
     margin-top: 1rem;
-    font-size: 0.85rem;
+    font-size: clamp(0.75rem, 2.5vw, 0.85rem);
     color: #bbb;
 }
 
 .forms {
     max-width: 400px;
-    width: 100%;
-    margin: auto;
+    width: 90%;
+    margin: 2rem auto;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
@@ -104,6 +172,7 @@ body {
 .input-label {
     margin-bottom: 0.5rem;
     font-weight: 500;
+    font-size: clamp(0.9rem, 3vw, 1rem);
 }
 
 .input-box {
@@ -114,6 +183,8 @@ body {
     color: #fff;
     outline: none;
     transition: border 0.3s;
+    width: 100%;
+    font-size: clamp(0.9rem, 3vw, 1rem);
 }
 
 .input-box:focus {
@@ -126,9 +197,10 @@ body {
     border: none;
     border-radius: 12px;
     color: white;
-    font-size: 1rem;
+    font-size: clamp(0.9rem, 3vw, 1rem);
     cursor: pointer;
     transition: 0.3s;
+    width: 100%;
 }
 
 .submit-button:hover {
@@ -140,37 +212,46 @@ body {
     text-align: center;
     margin: 2rem auto;
     max-width: 500px;
-    width: 100%;
-    background: #1c1c4a;
-    border-radius: 16px;
-    padding: 2rem;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    width: 90%;
 }
 
 .ticket-header img {
-    width: 140px;
+    width: clamp(100px, 25vw, 140px);
     margin-bottom: 1rem;
 }
 
 .ticket-preview-text {
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 3.5vw, 1.2rem);
     margin-bottom: 2rem;
 }
 
 .ticket-content {
-    display: flex;
     align-items: center;
     gap: 1.5rem;
-    background: #2c2c66;
+    max-width: auto;
+    background: #181873;
     padding: 1rem;
+    margin-top: 60px;
     border-radius: 12px;
+    box-shadow: #000000 0px 0px 1000px;
+}
+
+.ticket-logo img {
+    width: 100px;
+    height: auto;
+    margin-bottom: 1rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .ticket-avatar img {
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    border: 2px solid #ff4d8d;
+    border: 3px solid #c453ab;
+    object-fit: cover;
+    
 }
 
 .ticket-info h3 {
@@ -182,10 +263,62 @@ body {
     color: #ccc;
 }
 
+.ticket-info .git-info{
+  display: inline-flex !important; /* força ficar em linha */
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;            /* impede quebra para a linha de baixo */
+}
+
+.ticket-info .git-info img{
+  width: 20px;
+  height: 20px;
+  flex: 0 0 auto;
+}
+
+
+
 .footer {
     text-align: center;
     margin-top: auto;
     padding: 2rem;
     font-size: 0.9rem;
     color: #888;
+}
+
+
+/* Estilos de erro (já existentes) */
+.error-message {
+    color: #ff4d4d;
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+    display: block;
+    text-align: left; /* Este já está aqui */
+    height: 1.2em;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.error-message.active {
+    opacity: 1;
+}
+
+.input-box.error {
+    border-color: #ff4d4d !important;
+}
+
+/* Estilos para combater o autofill do navegador */
+.input-box:-webkit-autofill,
+.input-box:-webkit-autofill:hover, 
+.input-box:-webkit-autofill:focus, 
+.input-box:-webkit-autofill:active {
+    box-shadow: 0 0 0px 1000px #1a1a3a inset !important; 
+    -webkit-text-fill-color: #fff !important; 
+    transition: background-color 9999s ease-in-out 0s, color 9999s ease-in-out 0s;
+}
+
+.input-box:-moz-autofill {
+    background-color: #1a1a3a !important;
+    color: #fff !important;
 }
