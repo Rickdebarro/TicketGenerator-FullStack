@@ -33,11 +33,13 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('.footer')
     ];
 
-    function showError(errorEl, message) {
-        if (!errorEl) return;
-        errorEl.textContent = message;
-        errorEl.classList.add('active');
+    function showError(errorElement, message, input) {
+
+        errorElement.textContent = message;
+        errorElement.style.color = "red";
+        errorElement.classList.add('active');
     }
+
 
     function clearError(errorEl, inputEl = null) {
         if (errorEl) {
@@ -72,24 +74,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function validateFields(fields) {
         let valid = true;
+
+        const labels = {
+            // fullName: "nome",
+            fullName: "nome completo",
+            email: "email",
+            gitUsername: "username do GitHub"
+        };
+
         for (let key in fields) {
             const { input, error } = fields[key];
-            if (input.value.trim() === '') {
-                showError(error, `Por favor, digite seu ${key === 'gitUsername' ? 'username do GitHub' : key}.`);
+            const value = input.value.trim();
+
+            if (value === '') {
+                showError(error, `Por favor, digite seu ${labels[key] || key}.`);
                 input.classList.add('error');
                 valid = false;
             } else {
                 clearError(error, input);
             }
-            if (key === 'email' && input.value.trim() !== '') {
+
+            if (key === 'email' && value !== '') {
                 const pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!pattern.test(input.value.trim())) {
+                if (!pattern.test(value)) {
                     showError(error, 'Email inválido. Ex: exemplo@dominio.com');
                     input.classList.add('error');
                     valid = false;
                 }
             }
         }
+
         return valid;
     }
 
